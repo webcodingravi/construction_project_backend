@@ -18,9 +18,14 @@ class ServiceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-         $services = Service::orderBy('created_at','desc')->get();
+         $services = Service::orderBy('created_at','desc');
+            if(!empty($request->get('query'))) {
+              $services = $services->where('title','like','%'.$request->get('query').'%');
+         }
+
+         $services = $services->paginate($request->get('limit'));
 
          return response()->json([
             'status' => true,
@@ -38,6 +43,8 @@ class ServiceController extends Controller
             'title' => 'required',
             'slug'=> 'required|unique:services,slug'
         ]);
+
+        $request->merge(['slug' => Str::slug($request->slug)]);
 
         if($validator->fails()) {
             return response()->json([
@@ -111,17 +118,7 @@ class ServiceController extends Controller
         }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
 
@@ -132,6 +129,8 @@ class ServiceController extends Controller
                 'message' =>'Service not found'
             ]);
         }
+
+        $request->merge(['slug' => Str::slug($request->slug)]);
 
         $validator = Validator::make($request->all(),[
             'title' => 'required',
@@ -208,6 +207,9 @@ class ServiceController extends Controller
         ]);
       }
       $service->delete();
+
+       File::delete(public_path('uploads/services/large/'.$service->image));
+        File::delete(public_path('uploads/services/small/'.$service->image));
 
       return response()->json([
         'status' => true,
