@@ -20,6 +20,8 @@ use App\Http\Controllers\front\MemberController as FrontMemberController;
 
 Route::post('authenticate',[AuthenticationController::class,'authenticate']);
 
+Route::post('user-register',[AuthenticationController::class,'register']);
+
 // forgot Password routes
 Route::post('forgotPassword',[AuthenticationController::class,'forgotPassword']);
 Route::post('resetPassword',[AuthenticationController::class,'resetPassword']);

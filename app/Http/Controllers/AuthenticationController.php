@@ -15,6 +15,36 @@ use Illuminate\Support\Facades\Password;
 
 class AuthenticationController extends Controller
 {
+
+     public function register(Request $request) {
+        $validator = Validator::make($request->all(),[
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'required'
+    ]);
+
+     if($validator->fails()) {
+        return response()->json([
+          'status' => false,
+          'errors' => $validator->errors()
+        ]);
+
+        $user = new User();
+        $user->name = trim($request->name);
+        $user->email = trim($request->email);
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'User Successfully Created!'
+        ]);
+
+    }
+
+
+     }
+
      public function authenticate(Request $request) {
     //    Apply Validation
     $validator = Validator::make($request->all(),[
