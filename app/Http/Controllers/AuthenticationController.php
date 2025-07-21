@@ -19,7 +19,7 @@ class AuthenticationController extends Controller
      public function register(Request $request) {
         $validator = Validator::make($request->all(),[
         'name' => 'required',
-        'email' => 'required|email',
+        'email' => 'required|email|exists:users,email',
         'password' => 'required'
     ]);
 
@@ -28,6 +28,10 @@ class AuthenticationController extends Controller
           'status' => false,
           'errors' => $validator->errors()
         ]);
+
+
+
+    }
 
         $user = new User();
         $user->name = trim($request->name);
@@ -39,8 +43,6 @@ class AuthenticationController extends Controller
             'status' => true,
             'message' => 'User Successfully Created!'
         ]);
-
-    }
 
 
      }
