@@ -2,7 +2,10 @@
     Hi <b>{{ $user->name }}</b>
     <p>We Understand it happens.</p>
     <p>
-        @component('mail::button', ['url' => url('http://localhost:5173/admin/reset-password/' . $user->remember_token)])
+        @component('mail::button', [
+            'url' => url(
+                'https://urban-edge-constructions-react-project-7efqbxm4o.vercel.app/reset-password/' . $user->remember_token),
+        ])
             Reset Your Password
         @endcomponent
     </p>
