@@ -10,6 +10,11 @@ RUN composer install --no-dev --optimize-autoloader \
   && cp .env.example .env \
   && php artisan key:generate
 
+  # After app build/copy stage
+
+COPY docker/nginx/nginx-site.conf /etc/nginx/conf.d/default.conf
+
+
 # Final stage
 FROM nginx:alpine
 WORKDIR /var/www/html
