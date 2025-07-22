@@ -7,6 +7,7 @@ RUN apt-get update \
   && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
   RUN mkdir -p /var/www/database && touch /var/www/database/database.sqlite
+  RUN  touch database/database.sqlite
 
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
 
