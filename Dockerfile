@@ -1,25 +1,23 @@
-# Build stage
-FROM php:8.2-fpm AS build
-WORKDIR /var/www/html
+FROM php:8.2-fpm
+
+WORKDIR /var/www
+
 RUN apt-get update \
   && apt-get install -y zip unzip curl git libpng-dev libonig-dev libxml2-dev libzip-dev \
   && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+
+RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
+
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-COPY . .
-RUN composer install --no-dev --optimize-autoloader \
-  && cp .env.example .env \
-  && php artisan key:generate
 
-  # After app build/copy stage
+COPY . /var/www
+COPY --chown=www-data:www-data . /var/www
 
-COPY docker/nginx/nginx-site.conf /etc/nginx/conf.d/default.conf
+RUN chmod -R 755 /var/www
+RUN composer install
 
+COPY .env.example .env
+RUN php artisan key:generate
 
-# Final stage
-FROM nginx:alpine
-WORKDIR /var/www/html
-COPY --from=build /var/www/html /var/www/html
-COPY ./docker/nginx/nginx-site.conf /etc/nginx/conf.d/default.conf
-RUN chown -R www-data:www-data /var/www/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 8000
+CMD php artisan serve --host=0.0.0.0 --port=8000
