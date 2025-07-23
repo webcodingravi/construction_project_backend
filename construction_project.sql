@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2025 at 09:35 AM
+-- Generation Time: Jul 23, 2025 at 07:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `construction_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `abouts`
+--
+
+CREATE TABLE `abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `abouts`
+--
+
+INSERT INTO `abouts` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'About Us', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolorem quae placeat dolore? Debitis asperiores in laboriosam commodi architecto, labore repellendus eaque deserunt laudantium tempora! Ratione amet accusantium quae non.\n                     <br>\n                     <br>\n                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolorem quae placeat dolore? Debitis asperiores in laboriosam commodi architecto, labore repellendus eaque deserunt laudantium tempora! Ratione amet accusantium quae non.\n\n                     <br>\n                     <br>\n                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolorem quae placeat dolore? Debitis asperiores in laboriosam commodi architecto, labore repellendus eaque deserunt laudantium tempora! Ratione amet accusantium quae non.\n\n                     <br>\n                     <br>\n                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolorem quae placeat dolore? Debitis asperiores in laboriosam commodi architecto, labore repellendus eaque deserunt laudantium tempora! Ratione amet accusantium quae non.\n                  </p>', '17532890431.jpg', '2025-07-23 05:06:13', '2025-07-23 11:14:03');
 
 -- --------------------------------------------------------
 
@@ -86,6 +108,28 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `home_banners`
+--
+
+CREATE TABLE `home_banners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `home_banners`
+--
+
+INSERT INTO `home_banners` (`id`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Crafting dreams with precision and excellence.', '<p>We excel at transforming visions into reality through outstanding craftsmanship and precise, We excel at transforming visions into reality through outstanding craftsmanship and precise</p>', '17532904481.jpg', '2025-07-23 05:06:13', '2025-07-23 11:37:28');
 
 -- --------------------------------------------------------
 
@@ -174,7 +218,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2025_07_13_120319_create_articles_table', 6),
 (11, '2025_07_14_145424_create_testimonials_table', 7),
 (12, '2025_07_15_091716_create_members_table', 8),
-(15, '2025_07_18_165411_update_users_table', 9);
+(15, '2025_07_18_165411_update_users_table', 9),
+(16, '2025_07_22_211533_create_abouts_table', 10),
+(17, '2025_07_22_211606_create_home_banners_table', 10);
 
 -- --------------------------------------------------------
 
@@ -318,7 +364,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (99, 'App\\Models\\User', 2, 'token', 'fcccc39ce01a4f1b58c8edd68ef3f3159dd725943240b132eb0a70adeee97875', '[\"*\"]', NULL, NULL, '2025-07-05 09:02:10', '2025-07-05 09:02:10'),
 (100, 'App\\Models\\User', 2, 'token', 'a0c7f9cc3828d94cad75ead93c8a5cc0f537e4f57c1fafe333b1ceb2865a9ced', '[\"*\"]', NULL, NULL, '2025-07-05 09:02:19', '2025-07-05 09:02:19'),
 (101, 'App\\Models\\User', 2, 'token', 'd913cca46110897b01f609bc6416140fef6944e6576f63aa796ff276412afb7c', '[\"*\"]', NULL, NULL, '2025-07-05 09:03:24', '2025-07-05 09:03:24'),
-(102, 'App\\Models\\User', 2, 'token', 'd74b084ebdf244146e56ff7d50101de55605b2b6a3a6a81b22ec64d7763379b3', '[\"*\"]', '2025-07-21 05:31:51', NULL, '2025-07-11 04:47:59', '2025-07-21 05:31:51'),
+(102, 'App\\Models\\User', 2, 'token', 'd74b084ebdf244146e56ff7d50101de55605b2b6a3a6a81b22ec64d7763379b3', '[\"*\"]', '2025-07-23 07:08:35', NULL, '2025-07-11 04:47:59', '2025-07-23 07:08:35'),
 (103, 'App\\Models\\User', 2, 'token', '4e6f34d0c29ebede6b3e0c1c727419c6dfd63af1921396866708a784d6eaa37d', '[\"*\"]', NULL, NULL, '2025-07-11 07:52:57', '2025-07-11 07:52:57'),
 (104, 'App\\Models\\User', 2, 'token', '59cfe834c85ded19edacc063475ffc090a9eb759754b10450b6efbf4b43d2a90', '[\"*\"]', NULL, NULL, '2025-07-11 07:53:11', '2025-07-11 07:53:11'),
 (105, 'App\\Models\\User', 2, 'token', 'f74775b5c9c5a1aa1196d3845163eecc0e3fe11d8d5ae55b3f4e2d6a9c759ea8', '[\"*\"]', NULL, NULL, '2025-07-12 00:10:08', '2025-07-12 00:10:08'),
@@ -374,7 +420,17 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (155, 'App\\Models\\User', 2, 'token', '283792333b65a125e52891de98fb7853ed8ebb78156cf4faac3628baabc2cdee', '[\"*\"]', '2025-07-21 12:43:40', NULL, '2025-07-21 12:43:38', '2025-07-21 12:43:40'),
 (156, 'App\\Models\\User', 2, 'token', '583fd39c7ef98040f8486bb55c5cadb1c0959eac36e225a5ba29094aeeb3e33d', '[\"*\"]', '2025-07-21 13:08:36', NULL, '2025-07-21 13:08:34', '2025-07-21 13:08:36'),
 (157, 'App\\Models\\User', 2, 'token', '9d6560daa29c10a97fe9f6256ee4afb1aa02d1c7009116e45b25563523c5b988', '[\"*\"]', '2025-07-21 13:25:39', NULL, '2025-07-21 13:09:44', '2025-07-21 13:25:39'),
-(158, 'App\\Models\\User', 2, 'token', '3b5cf1dea1dcac21bb84cd34d9a7dbb02846e9ea4814a1db682cf0306fb35ba0', '[\"*\"]', '2025-07-21 13:26:35', NULL, '2025-07-21 13:26:31', '2025-07-21 13:26:35');
+(158, 'App\\Models\\User', 2, 'token', '3b5cf1dea1dcac21bb84cd34d9a7dbb02846e9ea4814a1db682cf0306fb35ba0', '[\"*\"]', '2025-07-21 13:26:35', NULL, '2025-07-21 13:26:31', '2025-07-21 13:26:35'),
+(159, 'App\\Models\\User', 2, 'token', '42e46390805e898c1d75081e18ae486db1ccdfde686b57e28dac76e56ec59f54', '[\"*\"]', '2025-07-23 05:25:18', NULL, '2025-07-23 05:24:48', '2025-07-23 05:25:18'),
+(160, 'App\\Models\\User', 2, 'token', '73d1802749e7a3036bba1258b4342ddbf172986165abd7527b9623a95c3d8048', '[\"*\"]', '2025-07-23 10:50:46', NULL, '2025-07-23 05:30:21', '2025-07-23 10:50:46'),
+(161, 'App\\Models\\User', 2, 'token', '840b9bda4e85337d3c59b0eb88813c74437a2befd99077bc11c8d0fc73e2930e', '[\"*\"]', '2025-07-23 12:02:14', NULL, '2025-07-23 07:09:14', '2025-07-23 12:02:14'),
+(162, 'App\\Models\\User', 2, 'token', 'bc3dd43e50d7d3e6049b0b6bdf616e04f20291a06382b229fab3bed5864ca0bf', '[\"*\"]', '2025-07-23 11:04:24', NULL, '2025-07-23 10:51:34', '2025-07-23 11:04:24'),
+(163, 'App\\Models\\User', 4, 'token', '7e20c58e153d6bf63d1280b49bdd3a483a56021ae47fb814661bff22a4b9702e', '[\"*\"]', '2025-07-23 11:09:01', NULL, '2025-07-23 11:08:23', '2025-07-23 11:09:01'),
+(164, 'App\\Models\\User', 2, 'token', '6e35079ce9f40ca0793d6d8a1b5b7c6775f5c57a1f3c95d421ab5327b30a8285', '[\"*\"]', '2025-07-23 11:11:14', NULL, '2025-07-23 11:10:53', '2025-07-23 11:11:14'),
+(165, 'App\\Models\\User', 2, 'token', 'a856ba49e21bd409e00f942744d312c024ad51c29d2a50769e799ed1da82b5fa', '[\"*\"]', '2025-07-23 11:12:16', NULL, '2025-07-23 11:12:04', '2025-07-23 11:12:16'),
+(166, 'App\\Models\\User', 2, 'token', 'e9758a0bb4225481c6ab6e930b8ad76b11071a2700da4c970ba643756d11979a', '[\"*\"]', '2025-07-23 11:14:05', NULL, '2025-07-23 11:13:55', '2025-07-23 11:14:05'),
+(167, 'App\\Models\\User', 2, 'token', '46505ca18c2fa6662756937b5072747a6cfdd696a00f67f00663e2f252f3ad5a', '[\"*\"]', '2025-07-23 11:37:30', NULL, '2025-07-23 11:37:08', '2025-07-23 11:37:30'),
+(168, 'App\\Models\\User', 2, 'token', 'e36d6ac1fbab4469774ec81de928eb9c7055f8c41c5beac4992638cba1c01d20', '[\"*\"]', '2025-07-23 12:26:09', NULL, '2025-07-23 11:51:08', '2025-07-23 12:26:09');
 
 -- --------------------------------------------------------
 
@@ -459,104 +515,6 @@ CREATE TABLE `temp_images` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `temp_images`
---
-
-INSERT INTO `temp_images` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, '1752323445.jpg', '2025-07-12 07:00:45', '2025-07-12 07:00:45'),
-(2, '1752324015.jpg', '2025-07-12 07:10:15', '2025-07-12 07:10:15'),
-(3, '1752324085.jpg', '2025-07-12 07:11:25', '2025-07-12 07:11:25'),
-(4, '1752324106.jpg', '2025-07-12 07:11:46', '2025-07-12 07:11:46'),
-(5, '1752324236.PNG', '2025-07-12 07:13:56', '2025-07-12 07:13:56'),
-(6, '1752324320.jpg', '2025-07-12 07:15:20', '2025-07-12 07:15:20'),
-(7, '1752324460.jpg', '2025-07-12 07:17:40', '2025-07-12 07:17:40'),
-(8, '1752324506.jpg', '2025-07-12 07:18:26', '2025-07-12 07:18:26'),
-(9, '1752324603.jpg', '2025-07-12 07:20:03', '2025-07-12 07:20:03'),
-(10, '1752324621.jpg', '2025-07-12 07:20:21', '2025-07-12 07:20:21'),
-(11, '1752324841.jpg', '2025-07-12 07:24:01', '2025-07-12 07:24:01'),
-(12, '1752324967.jpg', '2025-07-12 07:26:07', '2025-07-12 07:26:07'),
-(13, '1752324983.jpg', '2025-07-12 07:26:23', '2025-07-12 07:26:23'),
-(14, '1752325028.jpg', '2025-07-12 07:27:08', '2025-07-12 07:27:08'),
-(15, '1752325324.jpg', '2025-07-12 07:32:04', '2025-07-12 07:32:04'),
-(16, '1752325358.jpg', '2025-07-12 07:32:38', '2025-07-12 07:32:38'),
-(17, '1752325459.jpg', '2025-07-12 07:34:19', '2025-07-12 07:34:19'),
-(18, '1752325789.jpg', '2025-07-12 07:39:49', '2025-07-12 07:39:49'),
-(19, '1752328817.jpg', '2025-07-12 08:30:17', '2025-07-12 08:30:17'),
-(20, '1752331765.jpg', '2025-07-12 09:19:25', '2025-07-12 09:19:25'),
-(21, '1752331788.jpg', '2025-07-12 09:19:48', '2025-07-12 09:19:48'),
-(22, '1752331806.jpg', '2025-07-12 09:20:06', '2025-07-12 09:20:06'),
-(23, '1752331830.jpg', '2025-07-12 09:20:30', '2025-07-12 09:20:30'),
-(24, '1752400788.jpg', '2025-07-13 04:29:48', '2025-07-13 04:29:48'),
-(25, '1752400814.jpg', '2025-07-13 04:30:14', '2025-07-13 04:30:14'),
-(26, '1752402815.jpg', '2025-07-13 05:03:35', '2025-07-13 05:03:35'),
-(27, '1752402879.jpg', '2025-07-13 05:04:39', '2025-07-13 05:04:39'),
-(28, '1752402897.jpg', '2025-07-13 05:04:57', '2025-07-13 05:04:57'),
-(29, '1752403101.jpg', '2025-07-13 05:08:21', '2025-07-13 05:08:21'),
-(30, '1752403573.jpg', '2025-07-13 05:16:13', '2025-07-13 05:16:13'),
-(31, '1752406011.jpg', '2025-07-13 05:56:51', '2025-07-13 05:56:51'),
-(32, '1752406031.jpg', '2025-07-13 05:57:11', '2025-07-13 05:57:11'),
-(33, '1752493026.jpg', '2025-07-14 06:07:06', '2025-07-14 06:07:06'),
-(34, '1752493163.jpg', '2025-07-14 06:09:23', '2025-07-14 06:09:23'),
-(35, '1752493255.jpg', '2025-07-14 06:10:55', '2025-07-14 06:10:55'),
-(36, '1752493326.jpg', '2025-07-14 06:12:06', '2025-07-14 06:12:06'),
-(37, '1752493403.jpg', '2025-07-14 06:13:23', '2025-07-14 06:13:23'),
-(38, '1752493764.jpg', '2025-07-14 06:19:24', '2025-07-14 06:19:24'),
-(39, '1752497535.jpg', '2025-07-14 07:22:15', '2025-07-14 07:22:15'),
-(40, '1752513199.jpg', '2025-07-14 11:43:19', '2025-07-14 11:43:19'),
-(41, '1752513269.jpg', '2025-07-14 11:44:29', '2025-07-14 11:44:29'),
-(42, '1752513326.jpg', '2025-07-14 11:45:26', '2025-07-14 11:45:26'),
-(43, '1752513647.jpg', '2025-07-14 11:50:47', '2025-07-14 11:50:47'),
-(44, '1752513697.jpg', '2025-07-14 11:51:37', '2025-07-14 11:51:37'),
-(45, '1752514139.jpg', '2025-07-14 11:58:59', '2025-07-14 11:58:59'),
-(46, '1752514160.jpg', '2025-07-14 11:59:20', '2025-07-14 11:59:20'),
-(47, '1752514298.jpg', '2025-07-14 12:01:38', '2025-07-14 12:01:38'),
-(48, '1752514372.jpg', '2025-07-14 12:02:52', '2025-07-14 12:02:52'),
-(49, '1752514415.jpg', '2025-07-14 12:03:35', '2025-07-14 12:03:35'),
-(50, '1752514447.jpg', '2025-07-14 12:04:07', '2025-07-14 12:04:07'),
-(51, '1752514495.jpg', '2025-07-14 12:04:55', '2025-07-14 12:04:55'),
-(52, '1752514764.jpg', '2025-07-14 12:09:24', '2025-07-14 12:09:24'),
-(53, '1752569774.jpg', '2025-07-15 03:26:14', '2025-07-15 03:26:14'),
-(54, '1752569970.jpg', '2025-07-15 03:29:30', '2025-07-15 03:29:30'),
-(55, '1752570287.jpg', '2025-07-15 03:34:47', '2025-07-15 03:34:47'),
-(56, '1752570513.jpg', '2025-07-15 03:38:33', '2025-07-15 03:38:33'),
-(57, '1752570657.jpg', '2025-07-15 03:40:57', '2025-07-15 03:40:57'),
-(58, '1752579513.jpg', '2025-07-15 06:08:33', '2025-07-15 06:08:33'),
-(59, '1752579538.jpg', '2025-07-15 06:08:58', '2025-07-15 06:08:58'),
-(60, '1752579640.jpg', '2025-07-15 06:10:40', '2025-07-15 06:10:40'),
-(61, '1752579684.jpg', '2025-07-15 06:11:24', '2025-07-15 06:11:24'),
-(62, '1752579781.jpg', '2025-07-15 06:13:01', '2025-07-15 06:13:01'),
-(63, '1752579879.jpg', '2025-07-15 06:14:39', '2025-07-15 06:14:39'),
-(64, '1752579929.jpg', '2025-07-15 06:15:29', '2025-07-15 06:15:29'),
-(65, '1752579957.jpg', '2025-07-15 06:15:57', '2025-07-15 06:15:57'),
-(66, '1752580149.jpg', '2025-07-15 06:19:09', '2025-07-15 06:19:09'),
-(67, '1752597560.jpg', '2025-07-15 11:09:20', '2025-07-15 11:09:20'),
-(68, '1752597804.jpg', '2025-07-15 11:13:24', '2025-07-15 11:13:24'),
-(69, '1752597858.jpg', '2025-07-15 11:14:18', '2025-07-15 11:14:18'),
-(70, '1752598474.jpg', '2025-07-15 11:24:34', '2025-07-15 11:24:34'),
-(71, '1752598491.jpg', '2025-07-15 11:24:51', '2025-07-15 11:24:51'),
-(72, '1752939576.jpg', '2025-07-19 10:09:36', '2025-07-19 10:09:36'),
-(73, '1752939646.jpg', '2025-07-19 10:10:46', '2025-07-19 10:10:46'),
-(74, '1752939749.jpg', '2025-07-19 10:12:29', '2025-07-19 10:12:29'),
-(75, '1752939788.jpg', '2025-07-19 10:13:08', '2025-07-19 10:13:08'),
-(76, '1752939824.jpg', '2025-07-19 10:13:44', '2025-07-19 10:13:44'),
-(77, '1752939856.jpg', '2025-07-19 10:14:16', '2025-07-19 10:14:16'),
-(78, '1752939905.jpg', '2025-07-19 10:15:05', '2025-07-19 10:15:05'),
-(79, '1752939940.jpg', '2025-07-19 10:15:40', '2025-07-19 10:15:40'),
-(80, '1752940098.jpg', '2025-07-19 10:18:18', '2025-07-19 10:18:18'),
-(81, '1752940267.jpg', '2025-07-19 10:21:07', '2025-07-19 10:21:07'),
-(82, '1752940298.jpg', '2025-07-19 10:21:38', '2025-07-19 10:21:38'),
-(83, '1752940378.jpg', '2025-07-19 10:22:58', '2025-07-19 10:22:58'),
-(84, '1752940533.jpg', '2025-07-19 10:25:33', '2025-07-19 10:25:33'),
-(85, '1752940576.jpg', '2025-07-19 10:26:16', '2025-07-19 10:26:16'),
-(86, '1752940619.jpg', '2025-07-19 10:26:59', '2025-07-19 10:26:59'),
-(87, '1752940659.jpg', '2025-07-19 10:27:39', '2025-07-19 10:27:39'),
-(88, '1752940832.jpg', '2025-07-19 10:30:32', '2025-07-19 10:30:32'),
-(89, '1752941178.jpg', '2025-07-19 10:36:18', '2025-07-19 10:36:18'),
-(90, '1753097615.jpg', '2025-07-21 06:03:35', '2025-07-21 06:03:35'),
-(91, '1753099212.jpg', '2025-07-21 06:30:12', '2025-07-21 06:30:12'),
-(92, '1753123866.jpg', '2025-07-21 13:21:06', '2025-07-21 13:21:06');
-
 -- --------------------------------------------------------
 
 --
@@ -605,11 +563,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Ravi kumar', '1752903251.jpg', 'ravi@gmail.com', '2025-07-21 13:08:26', '$2y$12$cZ4JYF7nvomHp3BooOF2aeAL50hLLEXeXG6rusNeI/3NxexOiGXVu', 'kjrbv2nSwXttWNsCr79rm9vzZ27L5tpkDLFW9wBJ', '2025-07-04 05:59:50', '2025-07-21 13:08:26');
+(2, 'Ravi kumar', '1752903251.jpg', 'ravi@gmail.com', '2025-07-21 13:08:26', '$2y$12$cZ4JYF7nvomHp3BooOF2aeAL50hLLEXeXG6rusNeI/3NxexOiGXVu', 'kjrbv2nSwXttWNsCr79rm9vzZ27L5tpkDLFW9wBJ', '2025-07-04 05:59:50', '2025-07-21 13:08:26'),
+(4, 'Ravi kumar', NULL, 'ravi395950@gmail.com', NULL, '$2y$12$vSJNeTE0YJAaq27ofYVD9u1vLTKeFJdXsLuVNvk7LqsNWoslMWoVi', NULL, '2025-07-22 12:17:51', '2025-07-22 12:17:51'),
+(5, 'Krish', NULL, 'krish236@gmail.com', NULL, '$2y$12$bTWOST0dM9o.C1S7uYmZlOZTb.rQCgiJwSwT/ONRiTwuABMwXu.2O', NULL, '2025-07-22 12:19:26', '2025-07-22 12:19:26');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `abouts`
+--
+ALTER TABLE `abouts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `articles`
@@ -635,6 +601,12 @@ ALTER TABLE `cache_locks`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `home_banners`
+--
+ALTER TABLE `home_banners`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jobs`
@@ -719,6 +691,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `abouts`
+--
+ALTER TABLE `abouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
@@ -729,6 +707,12 @@ ALTER TABLE `articles`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `home_banners`
+--
+ALTER TABLE `home_banners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -746,13 +730,13 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
 
 --
 -- AUTO_INCREMENT for table `projects`
@@ -770,7 +754,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `temp_images`
 --
 ALTER TABLE `temp_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT for table `testimonials`
@@ -782,7 +766,7 @@ ALTER TABLE `testimonials`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AboutController;
 use App\Models\TempImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -9,10 +10,13 @@ use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\HomeBannerController;
 use App\Http\Controllers\admin\TempImageController;
 use App\Http\Controllers\admin\TestimonialController;
+use App\Http\Controllers\front\AboutController as FrontAboutController;
 use App\Http\Controllers\front\ArticleController as FrontArticleController;
 use App\Http\Controllers\front\ContactController;
+use App\Http\Controllers\front\HomeBannerController as FrontHomeBannerController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
 use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Http\Controllers\front\TestimonialController as FrontTestimonialController;
@@ -21,6 +25,8 @@ use App\Http\Controllers\front\MemberController as FrontMemberController;
 Route::post('authenticate',[AuthenticationController::class,'authenticate']);
 
 Route::post('user-register',[AuthenticationController::class,'register']);
+
+
 
 // forgot Password routes
 Route::post('forgotPassword',[AuthenticationController::class,'forgotPassword']);
@@ -44,6 +50,15 @@ Route::get('single-project/{slug}',[FrontProjectController::class,'singleProject
 Route::get('get-articles',[FrontArticleController::class,'index']);
 Route::get('get-latest-articles',[FrontArticleController::class,'latestArticles']);
 Route::get('single-article/{slug}',[FrontArticleController::class,'singleArticle']);
+
+
+//front HomeBanner routes
+Route::get('home-banner',[FrontHomeBannerController::class,'homeBanner']);
+
+
+//front About routes
+Route::get('about-us',[FrontAboutController::class,'aboutUs']);
+
 
 // front testimonials routes
 Route::get('get-testimonials',[FrontTestimonialController::class,'index']);
@@ -102,6 +117,15 @@ Route::group(['middleware' => ['auth:sanctum']],function(){
     Route::get('members/{id}',[MemberController::class,'show']);
     Route::put('members/{id}',[MemberController::class,'update']);
     Route::delete('members/{id}',[MemberController::class,'destroy']);
+
+
+    // About routes
+     Route::get('about-us/{id}',[AboutController::class,'show']);
+    Route::put('about-us/{id}',[AboutController::class,'update']);
+    //  homeBanner Routes
+     Route::get('home-banner/{id}',[HomeBannerController::class,'show']);
+     Route::put('home-banner/{id}',[HomeBannerController::class,'update']);
+
 
     //  Temp Image Routes
      Route::post('temp-images',[TempImageController::class,'store']);
