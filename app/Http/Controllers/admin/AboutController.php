@@ -35,7 +35,7 @@ class AboutController extends Controller
 
      public function update(Request $request,string $id) {
 
-    $aboutUs = About::find($id);
+    // $aboutUs = About::find($id);
     if($aboutUs == null) {
         return response()->json([
           'status' => false,
@@ -56,9 +56,21 @@ class AboutController extends Controller
         ]);
       }
 
-      $aboutUs->title = trim($request->title);
-      $aboutUs->description = trim($request->description);
-      $aboutUs->save();
+
+
+    //   $aboutUs->title = trim($request->title);
+    //   $aboutUs->description = trim($request->description);
+    //   $aboutUs->save();
+
+           $aboutUs = About::updateOrCreate(
+        ['id' => $id],
+        [
+            'title'       => trim($request->title),
+            'description' => trim($request->description),
+        ]
+         );
+
+
 
     //    Save temp image here
      if($request->imageId > 0) {

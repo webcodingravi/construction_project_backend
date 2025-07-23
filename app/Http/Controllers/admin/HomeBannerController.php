@@ -35,7 +35,7 @@ class HomeBannerController extends Controller
 
 
     public function update(Request $request,string $id) {
-    $homeBanner = homeBanner::find($id);
+    // $homeBanner = homeBanner::find($id);
     if($homeBanner == null) {
         return response()->json([
           'status' => false,
@@ -54,9 +54,18 @@ class HomeBannerController extends Controller
             'errors' => $validator->errors()
         ]);
       }
-      $homeBanner->title = trim($request->title);
-      $homeBanner->description = trim($request->description);
-      $homeBanner->save();
+    //   $homeBanner->title = trim($request->title);
+    //   $homeBanner->description = trim($request->description);
+    //   $homeBanner->save();
+
+          $homeBanner = HomeBanner::updateOrCreate(
+        ['id' => $id],  // lookup criteria
+        [
+            'title'       => trim($request->title),
+            'description' => trim($request->description),
+        ]
+        );
+
 
     //    Save temp image here
      if($request->imageId > 0) {
