@@ -10,13 +10,14 @@ echo "Caching config and routes…"
 php artisan config:cache
 php artisan route:cache
 
-echo "Running migrations…"
-php artisan migrate --force
 
-echo "Seeding database…"
-php artisan db:seed --force
-# OR, to rebuild schema and seed:
-# php artisan migrate:fresh --seed --force
+if [ ! -f /app/.seeded ]; then
+  php artisan migrate --force
+  php artisan db:seed --force
+  touch /app/.seeded
+fi
+exec "$@"
+
 
 composer dump-autoload
 
