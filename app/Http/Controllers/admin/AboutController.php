@@ -36,12 +36,12 @@ class AboutController extends Controller
      public function update(Request $request,string $id) {
 
     // $aboutUs = About::find($id);
-    if($aboutUs == null) {
-        return response()->json([
-          'status' => false,
-        'message' => 'Not Found'
-        ],404);
-    }
+    // if($aboutUs == null) {
+    //     return response()->json([
+    //       'status' => false,
+    //     'message' => 'Not Found'
+    //     ],404);
+    // }
 
       $validator = Validator::make($request->all(),[
         'title' => 'required',
@@ -62,7 +62,7 @@ class AboutController extends Controller
     //   $aboutUs->description = trim($request->description);
     //   $aboutUs->save();
 
-           $aboutUs = About::updateOrCreate(
+         $aboutUs = About::updateOrCreate(
         ['id' => $id],
         [
             'title'       => trim($request->title),

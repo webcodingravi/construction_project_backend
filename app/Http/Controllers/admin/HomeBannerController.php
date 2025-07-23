@@ -36,12 +36,12 @@ class HomeBannerController extends Controller
 
     public function update(Request $request,string $id) {
     // $homeBanner = homeBanner::find($id);
-    if($homeBanner == null) {
-        return response()->json([
-          'status' => false,
-        'message' => 'Not Found'
-        ],404);
-    }
+    // if($homeBanner == null) {
+    //     return response()->json([
+    //       'status' => false,
+    //     'message' => 'Not Found'
+    //     ],404);
+    // }
       $validator = Validator::make($request->all(),[
         'title' => 'required',
         'description' => 'required',
