@@ -18,5 +18,7 @@ php artisan db:seed --force
 # OR, to rebuild schema and seed:
 # php artisan migrate:fresh --seed --force
 
+composer dump-autoload
+
 echo "Starting Laravel server…"
 php artisan serve --host=0.0.0.0 --port=8000
