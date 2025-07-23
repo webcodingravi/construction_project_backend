@@ -13,5 +13,10 @@ php artisan route:cache
 echo "Running migrations…"
 php artisan migrate --force
 
+echo "Seeding database…"
+php artisan db:seed --force
+# OR, to rebuild schema and seed:
+# php artisan migrate:fresh --seed --force
+
 echo "Starting Laravel server…"
 php artisan serve --host=0.0.0.0 --port=8000
